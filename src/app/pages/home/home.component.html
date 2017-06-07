@@ -1,64 +1,210 @@
-<app-slider></app-slider>
 
-<section class="build" *ngIf="data.buildSection">
-  <div class="container">
-    <div class="row" *ngFor="let item of data.buildSection.buildSectionData">
-      <div class="col-sm-5 col-md-4 col-xs-12 text-center">
-        <figure>
-          <img src="{{item.buildImageSrc}}" alt="{{item.buildImageAlt}}" class="buildImg">
-        </figure>
+<div class="home-slider">
+  <div id="slider1">
+    <figure>
+      <div class="slide-1">
+        <img src="{{data.slider1}}" alt="We brew delicious SEO friendly websites">
+        <span class="slide-text1">We brew <span>delicious</span> <br/> <strong>SEO friendly websites</strong></span>
       </div>
-      <div class="col-sm-7 col-md-8 col-xs-12">
-        <div class="build-content">
-          <h3>{{item.buildHeading}}</h3>
-          <p>{{item.buildText1}}</p>
-          <p>{{item.buildText2}}</p>
-          <p>{{item.buildText3}}</p>
-        </div>
+      <div class="slide-2">
+        <img src="{{data.slider2}}" alt="We Create Magical Experience in Mobile Apps">
+        <span class="slide-text1">We Create <br/> <span>Magical Experience</span> <br/> in <strong>Mobile Apps</strong> </span>
       </div>
-    </div>
+      <div class="slide-3">
+        <img src="{{data.slider3}}" alt="We make your eCommerce spell Elegance and Creativity">
+        <!--<span class="slide-text1">We take full charge <br /> of your <span>convenience</span></span>-->
+        <span class="slide-text1">We make your<br/> <strong>eCommerce</strong> spell <span>Elegance and Creativity</span></span>
+      </div>
+      <div class="slide-4">
+        <img src="{{data.slider4}}" alt="We create awesome user experiences">
+        <span class="slide-text1">We create <span>awesome</span> <br/> <strong>user experiences</strong> </span>
+      </div>
+    </figure>
   </div>
-</section><!--graph-->
+</div>
 
-<section class="graph" *ngIf="data.graphSection">
+<section class="mobile-image">
+  <span> <img src="./assets/images/down-arrow.png"/> </span>
+  <img class="ui-ux" src="./assets/images/mobile-home-bg.jpg"/>
+</section>
+<section class="UI-UX">
   <div class="container">
-    <div class="row" *ngFor="let item of data.graphSection.graphSectionData">
-      <div class="col-sm-5 col-xs-12 col-sm-push-7">
-        <img class="graphImg" src="{{item.graphImageSrc}}" alt="{{item.graphImageAlt}}">
+    <a href="{{data.UiUxHref}}">
+      <h1> {{data.uixText}}</h1>
+      <div class="UI-UX-img">
+        <img src="{{data.UiUx}}" alt="UI_UX">
       </div>
-      <div class="col-sm-7 col-xs-12 col-sm-pull-5">
-        <div class="graph-content">
-          <h3>{{item.graphHeading}}</h3>
-          <p>{{item.graphText}}</p>
-        </div>
-    </div>
-    </div>
+    </a>
   </div>
-</section><!--graph-->
+</section>
 
-<section class="advantages" *ngIf="data.advantages">
+<mark class="services">
   <div class="container">
-    <div class="row">
-      <div class="col-sm-6" *ngFor="let item of data.advantages.type">
-        <figure class="adv-img">
+    <div class="grid">
+      <a href="{{item.href}}" *ngFor="let item of data.services">
+        <figure class="{{item.class}}">
           <img src="{{item.img}}" alt="{{item.alt}}">
+          <figcaption>
+            <h2>{{item.type}}</h2>
+            <p>{{item.description}}</p>
+          </figcaption>
         </figure>
-        <div class="adv-content">
-          <h3>{{item.title}}</h3>
-          <p>{{item.description}}</p>
-        </div>
-      </div><!--col-->
-    </div><!--row-->
-  </div><!--container-->
-</section><!--advantages-->
-
-<section class="popular" *ngIf="data.popularChats">
-  <div class="container">
-    <ul class="popular-chats">
-      <li *ngFor="let item of data.popularChats.icons"><img src="{{item.src}}" alt="{{item.alt}}"></li>
-    </ul>
-    <h3 class="popular-text text-center" *ngFor="let item of data.popularChats.textData">
-      {{item.text}}
-    </h3>
+      </a>
+    </div>
   </div>
-</section><!--advantages-->
+</mark>
+
+<!--TODO <FutureThinking *ngIf="isVisible" [data]="data.futureThinking"></FutureThinking>-->
+
+<mark class="clients">
+  <div class="container">
+    <div class="clients-heading">{{data.clienttitle}}</div>
+
+    <div class="clients-row" *ngFor="let item of data.clients">
+      <a href="/work/infoTech#cut2it-web">
+        <div class="{{item.class}}"></div>
+      </a>
+    </div>
+  </div>
+</mark>
+
+<article class="news">
+  <div class="container">
+    <div class="news-heading"> {{data.futurethinkingtitle}}</div>
+    <div class="news-list">
+      <ul>
+        <li>
+          <div *ngFor="let item of data.news.Items">
+            <div class="news-date">
+              {{item.publishedDate}}
+            </div>
+            <span class="date_year">
+              2016
+            </span>
+            <p>
+              <a [routerLink]=" ['/news',item.url]"> {{item.title}}
+              </a>
+            </p>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <a class="view-all-event" [routerLink]=" ['../news'] ">View All</a>
+    </div>
+  </div>
+</article>
+<main>
+  <router-outlet></router-outlet>
+</main>
+
+<article class="contact-us">
+  <div class="container">
+    <div class="curious-img">
+      <img src="{{data.curiousimg}}" alt="curious">
+    </div>
+    <div class="contact-containt">
+      <div class="contact-heading">
+        {{data.contacttitle}}
+      </div>
+      <div class="contact-logo">
+        <span *ngFor="let item of data.footer.logo">
+          <img src="{{item.img}}" alt="techprimelab">
+        </span>
+
+        <span> {{data.companyname}}</span>
+      </div>
+      <div class="contact-address">
+        <p *ngFor="let item of data.footer.addresses">
+          {{item.addresses}}
+        </p>
+        <p *ngFor="let item of data.footer.phoneNo">
+          {{item.item}}
+        </p>
+        <p *ngFor="let item of data.footer.email">
+          {{item.item}}
+        </p>
+        <div class="socail-icon">
+          <ul>
+            <li *ngFor="let item of data.footer.socialIcon">
+              <span itemscope itemtype="http://schema.org/Organization">
+                <link itemprop="url" href="http://www.techprimelab.com">
+                <a itemprop="sameAs" target="_blank" href="{{item.url}}"> </a>
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+<div class="copyright">
+  <p *ngFor="let item of data.footer.copyright">
+    {{item}}
+  </p>
+</div>
+
+
+<!--<section class="build" *ngIf="data.buildSection">-->
+  <!--<div class="container">-->
+    <!--<div class="row" *ngFor="let item of data.buildSection.buildSectionData">-->
+      <!--<div class="col-sm-5 col-md-4 col-xs-12 text-center">-->
+        <!--<figure>-->
+          <!--<img src="{{item.buildImageSrc}}" alt="{{item.buildImageAlt}}" class="buildImg">-->
+        <!--</figure>-->
+      <!--</div>-->
+      <!--<div class="col-sm-7 col-md-8 col-xs-12">-->
+        <!--<div class="build-content">-->
+          <!--<h3>{{item.buildHeading}}</h3>-->
+          <!--<p>{{item.buildText1}}</p>-->
+          <!--<p>{{item.buildText2}}</p>-->
+          <!--<p>{{item.buildText3}}</p>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+<!--</section>&lt;!&ndash;graph&ndash;&gt;-->
+
+<!--<section class="graph" *ngIf="data.graphSection">-->
+  <!--<div class="container">-->
+    <!--<div class="row" *ngFor="let item of data.graphSection.graphSectionData">-->
+      <!--<div class="col-sm-5 col-xs-12 col-sm-push-7">-->
+        <!--<img class="graphImg" src="{{item.graphImageSrc}}" alt="{{item.graphImageAlt}}">-->
+      <!--</div>-->
+      <!--<div class="col-sm-7 col-xs-12 col-sm-pull-5">-->
+        <!--<div class="graph-content">-->
+          <!--<h3>{{item.graphHeading}}</h3>-->
+          <!--<p>{{item.graphText}}</p>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+<!--</section>&lt;!&ndash;graph&ndash;&gt;-->
+
+<!--<section class="advantages" *ngIf="data.advantages">-->
+  <!--<div class="container">-->
+    <!--<div class="row">-->
+      <!--<div class="col-sm-6" *ngFor="let item of data.advantages.type">-->
+        <!--<figure class="adv-img">-->
+          <!--<img src="{{item.img}}" alt="{{item.alt}}">-->
+        <!--</figure>-->
+        <!--<div class="adv-content">-->
+          <!--<h3>{{item.title}}</h3>-->
+          <!--<p>{{item.description}}</p>-->
+        <!--</div>-->
+      <!--</div>&lt;!&ndash;col&ndash;&gt;-->
+    <!--</div>&lt;!&ndash;row&ndash;&gt;-->
+  <!--</div>&lt;!&ndash;container&ndash;&gt;-->
+<!--</section>&lt;!&ndash;advantages&ndash;&gt;-->
+
+<!--<section class="popular" *ngIf="data.popularChats">-->
+  <!--<div class="container">-->
+    <!--<ul class="popular-chats">-->
+      <!--<li *ngFor="let item of data.popularChats.icons"><img src="{{item.src}}" alt="{{item.alt}}"></li>-->
+    <!--</ul>-->
+    <!--<h3 class="popular-text text-center" *ngFor="let item of data.popularChats.textData">-->
+      <!--{{item.text}}-->
+    <!--</h3>-->
+  <!--</div>-->
+<!--</section>&lt;!&ndash;advantages&ndash;&gt;-->

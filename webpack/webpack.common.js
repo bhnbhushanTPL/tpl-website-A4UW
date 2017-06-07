@@ -4,6 +4,7 @@ const { webpack } = require('webpack');
 //const { ProvidePlugin } = require('webpack');
 // const { jquery } = require('jquery');
 // const { $ } = require("jquery")
+//var CompressionPlugin = require("compression-webpack-plugin");
 
 /**
  * This is a common webpack config which is the base for all builds
@@ -20,7 +21,12 @@ module.exports = {
     rules: [
       { test: /\.ts$/, loader: '@ngtools/webpack' },
       { test: /\.css$/, loader: 'raw-loader' },
-      { test: /\.html$/, loader: 'raw-loader' }
+      { test: /\.html$/, loader: 'raw-loader' },
+      {
+        test: /\.scss$/,
+        exclude: /node_modules/,
+        loaders: ['raw-loader', 'sass-loader']
+      }
     ]
   },
   plugins: [

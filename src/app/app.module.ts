@@ -8,9 +8,8 @@ import { TransferHttpModule } from '../modules/transfer-http/transfer-http.modul
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { AboutComponent } from './pages/about/about.component';
-import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { SliderComponent } from './components/slider/slider.component';
+import { scssTrial } from './components/scssTrial/scssTrial.component';
+import { Header } from './components/header/header.component';
 
 //declare var $ : JQueryStatic;
 
@@ -25,13 +24,12 @@ import { SliderComponent } from './components/slider/slider.component';
       { path: 'about', component: AboutComponent}
     ])
 	],
-	declarations: [ 
+	declarations: [
     AppComponent,
     HomeComponent,
     AboutComponent,
-    HeaderComponent,
-    FooterComponent,
-    SliderComponent
+    scssTrial,
+    Header
     ],
   exports: [ AppComponent ]
 })

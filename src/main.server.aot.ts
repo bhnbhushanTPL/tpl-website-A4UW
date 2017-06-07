@@ -27,11 +27,36 @@ app.set('views', 'src');
 
 
 import {
-  getAdvantagesApi,getHomeApi
+  getAdvantagesApi,getHomeApi,serverApi, getServicesDetailsApi, getAboutusDetailsApi, getApplicationArchitectProjectsApi,
+  getProcessAutomationProjectsApi, getPerformanceOptimizationProjectsApi,
+  getCloudDeploymentProjectsApi, getProcessDetailsApi, getContactUsDetailsApi, getBlogsDetailsApi, getNewsDetailsApi
 } from './backend/api';
+
+import { getWorkDetailsApi } from './backend/api';
+import {sendMailApi} from "./backend/api";
+//TO DO import { ngApp } from './main.node';
+//TO DO import {pageNotFound} from "./main.node";
+import {getAllWorkProjectApi} from "./backend/api";
+import {getAllServiceProjectApi} from "./backend/api";
 
 app.get('/api/advantages',getAdvantagesApi);
 app.get('/api/homeData', getHomeApi);
+
+app.get('/api/data', serverApi);
+app.get('/api/work',getWorkDetailsApi);
+app.get('/api/process',getProcessDetailsApi);
+app.get('/api/contactUs',getContactUsDetailsApi);
+app.get('/api/services',getServicesDetailsApi);
+app.get('/api/about',getAboutusDetailsApi);
+app.get('/api/applicationArchitect', getApplicationArchitectProjectsApi);
+app.get('/api/processAutomation', getProcessAutomationProjectsApi);
+app.get('/api/performanceOptimization', getPerformanceOptimizationProjectsApi);
+app.get('/api/cloudDeployment', getCloudDeploymentProjectsApi);
+app.get('/api/blogs', getBlogsDetailsApi);
+app.get('/api/news', getNewsDetailsApi);
+app.get('/api/allWork', getAllWorkProjectApi);
+app.get('/api/allService', getAllServiceProjectApi);
+app.post('/api/send', sendMailApi);
 
 
 app.use(compression());
